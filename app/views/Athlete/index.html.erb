@@ -1,0 +1,12 @@
+
+
+<% all_athletes = Athlete.read %>
+
+<% all_athletes.each do |athlete| %>
+
+<% athlete_fname = athlete["first_name"] %>
+<% athlete_lname = athlete["last_name"] %>
+<% athlete_name = athlete_fname + athlete_lname %>
+
+<li> <%= link_to (athlete_name), "/athlete/#{athlete["id"]}" %> </li>
+<% end %>

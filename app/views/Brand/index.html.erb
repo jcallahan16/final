@@ -1,0 +1,11 @@
+
+
+<% all_brands=Brand.read %>
+<% all_brands.each do |brand| %>	
+<% brand_logo_display = image_tag(brand["logo_url"], height: '10%', width: '10%') %>
+
+<table>
+<tr><td> 
+<%= link_to (brand_logo_display), "/brand/#{brand["id"]}" %> </td> </tr> </table> 
+
+  <% end %>

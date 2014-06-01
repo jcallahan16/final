@@ -1,0 +1,13 @@
+
+
+
+<% all_sports = Sport.read %>
+
+<% all_sports.each do |sport| %>
+
+<% sport_name = sport["sport_name"] %>
+
+<li> <%= link_to (sport_name), "/sport/#{sport["id"]}" %> </li>
+<% end %>
+
+<%= link_to "Add a New Sport", "/sport/new" %>

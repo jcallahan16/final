@@ -1,4 +1,67 @@
 FinalProject::Application.routes.draw do
+
+
+  get "/athlete/:id" =>'athlete#show'
+  get "/brand/:id" =>'brand#show'
+
+    # Resource: Athletes
+
+  # --- Create
+  get "/athlete/new" => 'athlete#new'
+  post "/athlete" => 'athlete#create'
+
+  # --- Read
+  get "/athlete" => 'athlete#index'
+  get "/athlete/:id" => 'athlete#show'
+
+  # -- Update
+  get "/athlete/:id/edit" => 'athlete#edit'
+  patch "/athlete/:id" => 'athlete#update'
+
+  # --- Delete
+  delete "/athlete/:id" => 'athlete#destroy'
+
+
+
+  # Resource: Users
+
+  # --- Create
+  get "/brand/new" => 'brand#new'
+  post "/brand" => 'brand#create'
+
+  # --- Read
+  get "/brand" => 'brand#index'
+  get "/brand/:id" => 'brand#show'
+
+  # -- Update
+  get "/brand/:id/edit" => 'brand#edit'
+  patch "/brand/:id" => 'brand#update'
+
+  # --- Delete
+  delete "/brand/:id" => 'brand#destroy'
+
+
+
+  # Resource: Directors
+
+  # --- Create
+  get "/sport/new" => 'sport#new'
+  post "/sport" => 'sport#create'
+
+  # --- Read
+  get "/sport" => 'sport#index'
+  get "/sport/:id" => 'sport#show'
+
+  # -- Update
+  get "/sport/:id/edit" => 'sport#edit'
+  patch "/sport/:id" => 'sport#update'
+
+  # --- Delete
+  delete "/sport/:id" => 'sport#destroy'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

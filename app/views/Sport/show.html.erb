@@ -1,0 +1,17 @@
+<% sport_id = params["id"] %>
+<% sport = Sport.read(sport_id) %>
+<% team = Team.find_by("sport_id"=> sport["id"]) %>
+<% athlete = Athlete.find_by("team_id" => team["id"]) %>
+
+<%= image_tag(team["logo"], height: '25%', width: '25%') %>
+
+
+
+<%# teams.each do |team| %>
+<h1> <%= team["name"] %> </h1>
+<%# athletes.each do |athlete| %>
+<% athlete_fname = athlete["first_name"] %>
+<% athlete_lname = athlete["last_name"] %>
+<% athlete_name = athlete_fname +  athlete_lname %>
+
+<li> <%= link_to (athlete_name), "/athlete/#{athlete["id"]}" %> </li>

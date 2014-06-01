@@ -1,0 +1,12 @@
+<h1>Add a New Sport</h1>
+
+<%= form_tag "/sport", "method" => "post" %>
+
+  <p>
+    <%= label_tag "sport_name", "Name of the sport:" %>
+    <%= text_field_tag "sport_name" %>
+  </p>
+
+  <%= submit_tag %> or <%= link_to "Cancel", "/sport" %>
+
+</form>
