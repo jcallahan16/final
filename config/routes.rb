@@ -1,8 +1,25 @@
 FinalProject::Application.routes.draw do
-
+  get "/" => 'homepage#index'
 
   get "/athlete/:id" =>'athlete#show'
   get "/brand/:id" =>'brand#show'
+
+
+  # --- Create
+  get "/sport/new" => 'sport#new'
+  post "/sports" => 'sports#create'
+
+  # --- Read
+  get "/sport" => 'sport#index'
+  get "/sport/:id" => 'sport#show'
+
+  # -- Update
+  get "/sport/:id/edit" => 'sport#edit'
+  patch "/sport/:id" => 'sport#update'
+
+  # --- Delete
+  delete "/sport/:id" => 'sport#destroy'
+
 
     # Resource: Athletes
 
@@ -43,21 +60,6 @@ FinalProject::Application.routes.draw do
 
 
   # Resource: Directors
-
-  # --- Create
-  get "/sport/new" => 'sport#new'
-  post "/sport" => 'sport#create'
-
-  # --- Read
-  get "/sport" => 'sport#index'
-  get "/sport/:id" => 'sport#show'
-
-  # -- Update
-  get "/sport/:id/edit" => 'sport#edit'
-  patch "/sport/:id" => 'sport#update'
-
-  # --- Delete
-  delete "/sport/:id" => 'sport#destroy'
 
 
 
