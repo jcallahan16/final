@@ -8,5 +8,5 @@
 <% athlete_lname = athlete["last_name"] %>
 <% athlete_name = athlete_fname + athlete_lname %>
 
-<li> <%= link_to (athlete_name), "/athlete/#{athlete["id"]}" %> </li>
+<li> <%= link_to (athlete_fname), "/athlete/#{athlete["id"]}" %> &nbsp; <%= link_to (athlete_lname), "/athlete/#{athlete["id"]}" %> </li>
 <% end %>

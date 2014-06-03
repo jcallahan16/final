@@ -11,11 +11,11 @@ class SportController < ApplicationController
     redirect_to "/sport"
   end
 
-  def update
-    sport = Sport.find_by("id" => params["id"])
-    sport.update("sport_name" => params["id"])
-    redirect_to "/sport"
-  end
+  #def update
+    #sport = Sport.find_by("id" => params["id"])
+    #sport.update("sport_name" => params["id"])
+    #redirect_to "/sport"
+  #end
 
 end
 
