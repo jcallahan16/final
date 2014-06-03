@@ -7,7 +7,7 @@ FinalProject::Application.routes.draw do
 
   # --- Create
   get "/sport/new" => 'sport#new'
-  post "/sports" => 'sports#create'
+  post "/sport" => 'sport#create'
 
   # --- Read
   get "/sport" => 'sport#index'

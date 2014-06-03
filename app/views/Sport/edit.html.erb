@@ -1,0 +1,25 @@
+<% sport = Sport.find_by("id" => params["id"]) %>
+
+<h1>Edit Sport:<%= sport["sport_name"] %></h1>
+<%= form_tag "/sport#{sport["id"]}", "method" => "patch" %>
+
+  <p>
+    <%= label_tag "sport_name", "What do you want to change the name of the sport to?" %>
+    <%= text_field_tag "sport_name", sport["sport_name"] %>
+  </p>
+
+
+  <%= submit_tag %> or <%= link_to "Cancel", "/sport" %>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+

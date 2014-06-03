@@ -7,7 +7,13 @@
 
 <% sport_name = sport["sport_name"] %>
 
-<li> <%= link_to (sport_name), "/sport/#{sport["id"]}" %> </li>
+<li> <%= link_to (sport_name), "/sport/#{sport["id"]}" %> 
+ <%= link_to "(Delete)", "/sport/#{sport["id"]}", "method" => "delete" %>
+      <%= link_to "(Edit)", "/sport/#{sport["id"]}/edit" %>
+
+
+
+</li>
 <% end %>
 
 <%= link_to "Add a New Sport", "/sport/new" %>
