@@ -1,12 +1,17 @@
 == README
 
 
-I am working at Amazon this summer, and my summer project is to leverage sponsored athletes to promote the products they endorse on special marketing pages on Amazon... however, I am not a sports guru, and it would be helpful to have a database of atheletes, their details and the products that they sponsor.  That was the genesis of my Athlete Sponsorship Database, which I plan on adding to over the summer as I work on my project.
+I am working at Amazon this summer, and my summer project is to leverage the social networks of professional athletes by having athletes promote the products they endorse on special marketing pages on Amazon... however, I am not a sports guru, and it would be helpful to have a database of atheletes, their details and the products that they sponsor that I can continue to add data to over the summer.  That was the genesis of my Athlete Sponsorship Database, which I plan on adding to over the summer as I work on my project.
 
 Here are the 5 requirements that I attempted to 
-	•	Implement at least one many-to-many association
+	•	Implement at least one many-to-many association 
+			(product model is linking brand and athlete)
 	•	Implement at least three models
+			(have Athlete, Brand, Sport, Team, Product)
 	•	Populate the database via seed data
+			(check)
 	•	Proper use of a CSS framework like Bootstrap or Foundation (grid usage, form elements, or other components)
-	•	Deploy your app to a live internet URL
+			(used bootstrap and bootstrap templates to design)
+	•	Mashup data from an external web service 
+			(Used a Twitter API to diplay how many twitter followers athlete has based on athlete's handle)
 
