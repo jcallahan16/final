@@ -1,0 +1,55 @@
+<% athlete = Athlete.find_by("id" => params["id"]) %>
+
+<h1>Edit Athlete:<%= athlete["first_name"] %><%= athlete["last_name"] %></h1>
+<%= form_tag "/athlete/#{athlete["id"]}", "method" => "patch" %>
+
+
+      <div class="form-group">
+        <%= label_tag "first_name", "First name:" %>
+        <%= text_field_tag "first_name", athlete["first_name"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "last_name", "Last name:" %>
+        <%= text_field_tag "last_name", athlete["last_name"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "image_url", "Link to an image" %>
+        <%= text_field_tag "image_url", athlete["image_url"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "team_id", "Choose a Team:" %>
+        <%= select_tag "team_id",
+                       options_from_collection_for_select(Team.read.order("name"),
+                        "id",
+                        "name"), "class" => "form-control" %>
+      </div>
+
+       <div class="form-group">
+        <%= label_tag "sport_id", "Choose a Sport:" %>
+        <%= select_tag "sport_id",
+                       options_from_collection_for_select(Sport.read.order("sport_name"),
+                        "id",
+                        "sport_name"), "class" => "form-control" %>
+      </div>
+
+<div class="form-group">
+        <%= label_tag "twitter_name", "Twitter handle:" %>
+        <%= text_field_tag "twitter_name", athlete["twitter_name"], "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "position", "Position (if not applicable, add N/A): " %>
+        <%= text_field_tag "position", athlete["position"], "class" => "form-control" %>
+      </div>
+
+      <%= submit_tag "Update", "class" => "btn btn-md btn-success" %> or <%= link_to "Cancel", "/athlete" %>
+
+    </form>
+</div>
+</div>
+
+
+

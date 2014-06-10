@@ -1,11 +1,11 @@
 == README
 
 
-I am working at Amazon this summer, and my internship project is to leverage the social networks of professional athletes by having athletes promote the products they endorse on special marketing pages on Amazon... however, I am not a sports guru, and it would be helpful to have a database of atheletes, their details and the products that they sponsor that I can continue to add data to over the summer.  That was the genesis of my Athlete Sponsorship Database, which I plan on adding to over the summer as I work on my project.
+I am working at Amazon this summer, and my internship project is to leverage the social networks of professional athletes by having athletes promote the products they endorse on special marketing pages on Amazon... however, I am not a sports guru, and it would be helpful to have a database of atheletes, their details and the products that they sponsor that I can continue to add data to over the summer.  That was the genesis of my Athlete Sponsorship Database, which I plan on adding to over the summer as I work on my project.  This is basically the skeleton of the database, (which needs some work!).
 
 Here are the 5 requirements that I attempted to add to my project
 	•	Implement at least one many-to-many association 
-			(product model is linking brand and athlete)
+			(product model is the one-to-many which links brands and athletes, which are many-to-many)
 	•	Implement at least three models
 			(have Athlete, Brand, Sport, Team, Product)
 	•	Populate the database via seed data

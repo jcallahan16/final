@@ -8,13 +8,7 @@ class ProductController < ApplicationController
 
   def create
   Product.create("name" => params["name"],"picture" => params["picture"], "url" => params["url"], "athlete_id" => params["athlete_id"], "brand_id" => params["brand_id"])
-    redirect_to "/athlete"
+    redirect_to "/athlete/#{product["athlete_id"]}"
   end
-
-  #def update
-    #sport = Sport.find_by("id" => params["id"])
-    #sport.update("sport_name" => params["id"])
-    #redirect_to "/sport"
-  #end
 
 end

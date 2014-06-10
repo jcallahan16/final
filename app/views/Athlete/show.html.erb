@@ -65,7 +65,7 @@
 <% athlete = Athlete.read(the_athlete_id) %>
 <% product = Product.find_by("athlete_id" => athlete["id"]) %>
 <% if product.blank? %> <i>  </i> <% else %> <% brand = Brand.find_by("id" => product["brand_id"]) %>
-	<% end %>
+  <% end %>
 
 
 <%= image_tag(athlete["image_url"], height: '25%', width: '25%') %>
@@ -80,18 +80,25 @@
 
 <div> <b> Team: </b> <%= team["name"] %> </div>
 
-<% if brand.blank? %> <div><i> No sponsors yet added to database </i></div><% else %> <div> <b> Sponsored by:</b>  </div> <%=  image_tag(brand["logo_url"], height: '25%', width: '25%') %> 
-	<% end %>
+<% if brand.blank? %> <div><i> No sponsors yet added to database </i></div>
+    <% else %> 
+    <div> <b> Sponsored by:</b>  </div> <%=  image_tag(brand["logo_url"], height: '25%', width: '25%') %> 
+<% end %>
 
-<br>
+<p>
 
 <div><% if product.blank? %> <i>No products yet added to the database </i></div><% else %>
+<i> Endorsed Products: </i>
 <li> <%= link_to product["name"], product["url"] %>  <%= link_to "(Delete)", "/product/#{product["id"]}", "method" => "delete" %> </li> 
+</p>
+  <% end %>
 
-	<% end %>
+  <!-- ADD PRODUCT FOR ATHLETE -->
+<% athlete_id = params["the_athlete_id"] %>
+<% athlete = Athlete.read(the_athlete_id) %>
 
-	<div class="page-header">
-  <h1>Add a New Product</h1>
+  <div class="page-header">
+  <h1>Add an endorsed product for <%= athlete["first_name"] %> <%= athlete["last_name"] %></h1>
 </div>
 
 
@@ -101,25 +108,25 @@
     <%= form_tag "/product", "method" => "post"  %>
 
       </div>
+</div>
 
        <div class="form-group">
-        <%= select_tag "athlete_id",
-                       options_from_collection_for_select(Athlete.read.order("first_name", "last_name"),
-                        "id",
-                        "last_name"), "class" => "form-control" %>
+        <%= label_tag "athlete_id", "Athlete ID (don't change!)" %>
+        <%= text_field_tag "name", athlete["id"], "class" => "form-control" %>
       </div>
+    
 
       <div class="form-group">
         <%= label_tag "name", "Product Name:" %>
         <%= text_field_tag "name", "", "class" => "form-control" %>
       </div>
 
- 	   <div class="form-group">
+     <div class="form-group">
         <%= label_tag "picture", "Link to photo:" %>
         <%= text_field_tag "picture", "", "class" => "form-control" %>
       </div>
 
- 	   <div class="form-group">
+     <div class="form-group">
         <%= label_tag "url", "Link to purchase:" %>
         <%= text_field_tag "logo_url", "", "class" => "form-control" %>
       </div>
@@ -132,5 +139,5 @@
                         "name"), "class" => "form-control" %>
       </div>
 
- <%= submit_tag "Add This Product", "class" => "btn btn-lg btn-success" %> or <%= link_to "Cancel", "/product/#{athlete["id"]}" %>
+ <%= submit_tag "Add This Product", "class" => "btn btn-md btn-success" %> or <%= link_to "Reset Product Entry Form", "/athlete/#{athlete["id"]}" %>
 

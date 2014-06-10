@@ -65,6 +65,14 @@
 <% order.each do |brand| %>	
 <% brand_name = brand["name"] %>
 <li>
-<%= link_to (brand_name), "/brand/#{brand["id"]}" %> </li>
+	<%= link_to (brand_name), "/brand/#{brand["id"]}" %> 
+ 	<%= link_to "(Delete)", "/brand/#{brand["id"]}", "method" => "delete" %>
+ </li>
 
   <% end %>
+  <br>
+<div class = "row">
+	<div class="col-md-2 col-md-offset-0">
+		<%= link_to "Add a New Brand", "/brand/new", "class" => 'btn btn-md btn-primary' %> </br>
+	</div>
+</div>

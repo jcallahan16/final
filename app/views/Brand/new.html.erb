@@ -58,57 +58,29 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
+
+
 <div class="page-header">
-  <h1>Add a New Athlete</h1>
+  <h1>Add a New Brand</h1>
 </div>
 
 <div class="row">
   <div class="col-md-5">
 
-    <%= form_tag "/athlete", "method" => "post"  %>
+    <%= form_tag "/brand", "method" => "post"  %>
 
       <div class="form-group">
-        <%= label_tag "first_name", "First name:" %>
-        <%= text_field_tag "first_name", "", "class" => "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= label_tag "last_name", "Last name:" %>
-        <%= text_field_tag "last_name", "", "class" => "form-control" %>
+        <%= label_tag "name", "Name of Brand:" %>
+        <%= text_field_tag "name", "", "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "image_url", "Link to an image" %>
-        <%= text_field_tag "image_url", "", "class" => "form-control" %>
+        <%= label_tag "logo_url", "URL for Brand Logo:" %>
+        <%= text_field_tag "logo_url", "", "class" => "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= label_tag "team_id", "Choose a Team:" %>
-        <%= select_tag "team_id",
-                       options_from_collection_for_select(Team.read.order("name"),
-                        "id",
-                        "name"), "class" => "form-control" %>
-      </div>
 
-       <div class="form-group">
-        <%= label_tag "sport_id", "Choose a Sport:" %>
-        <%= select_tag "sport_id",
-                       options_from_collection_for_select(Sport.read.order("sport_name"),
-                        "id",
-                        "sport_name"), "class" => "form-control" %>
-      </div>
-
-<div class="form-group">
-        <%= label_tag "twitter_name", "Twitter handle:" %>
-        <%= text_field_tag "twitter_name", "@", "class" => "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= label_tag "position", "Position (if not applicable, add N/A): " %>
-        <%= text_field_tag "position", "", "class" => "form-control" %>
-      </div>
-
-      <%= submit_tag "Add This Athlete", "class" => "btn btn-md btn-success" %> or <%= link_to "Cancel", "/athlete" %>
+      <%= submit_tag "Add This Brand", "class" => "btn btn-md btn-success" %> or <%= link_to "Cancel", "/brand" %>
 
     </form>
 </div>

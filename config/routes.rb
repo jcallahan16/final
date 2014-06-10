@@ -1,6 +1,7 @@
 FinalProject::Application.routes.draw do
   get "/" => 'homepage#index'
-
+  
+    # Sports
 
   # --- Create
   get "/sport/new" => 'sport#new'
@@ -18,7 +19,7 @@ FinalProject::Application.routes.draw do
   delete "/sport/:id" => 'sport#destroy'
 
 
-    # Resource: Athletes
+    # Athletes
 
   # --- Create
   get "/athlete/new" => 'athlete#new'

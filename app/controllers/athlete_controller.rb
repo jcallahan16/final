@@ -11,7 +11,11 @@ class AthleteController < ApplicationController
     redirect_to "/athlete"
   end
 
-
+ def update
+    athlete = Athlete.find_by("id" => params["id"])
+    athlete.update("last_name" => params["last_name"])
+    redirect_to "/athlete"
+  end
 
   #def update
     #sport = Sport.find_by("id" => params["id"])

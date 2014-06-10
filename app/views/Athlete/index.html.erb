@@ -71,6 +71,7 @@
 
 <li> <%= link_to (athlete_fname), "/athlete/#{athlete["id"]}" %>  <%= link_to (athlete_lname), "/athlete/#{athlete["id"]}" %> 
  <%= link_to "(Delete)", "/athlete/#{athlete["id"]}", "method" => "delete" %>
+ <%= link_to "(Edit)", "/athlete/#{athlete["id"]}/edit" %>
  </li>
 <% end %>
 <br>
