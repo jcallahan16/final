@@ -11,3 +11,4 @@
  *= require_self
  *= require_tree .
  */
+img { border: 1px solid #CCC; box-shadow: 5px 5px 2px #999;}

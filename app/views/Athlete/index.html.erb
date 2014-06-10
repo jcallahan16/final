@@ -1,12 +1,21 @@
 
 
 <% all_athletes = Athlete.read %>
+<% order = all_athletes.order("last_name") %>
 
-<% all_athletes.each do |athlete| %>
+<% order.each do |athlete| %>
 
 <% athlete_fname = athlete["first_name"] %>
 <% athlete_lname = athlete["last_name"] %>
-<% athlete_name = athlete_fname + athlete_lname %>
 
-<li> <%= link_to (athlete_fname), "/athlete/#{athlete["id"]}" %> &nbsp; <%= link_to (athlete_lname), "/athlete/#{athlete["id"]}" %> </li>
+
+<li> <%= link_to (athlete_fname), "/athlete/#{athlete["id"]}" %>  <%= link_to (athlete_lname), "/athlete/#{athlete["id"]}" %> 
+ <%= link_to "(Delete)", "/athlete/#{athlete["id"]}", "method" => "delete" %>
+ </li>
 <% end %>
+<br>
+<div class = "row">
+	<div class="col-md-2 col-md-offset-10">
+		<%= link_to "Add a New Athlete", "/athlete/new", "class" => 'btn btn-md btn-primary' %> </br>
+	</div>
+</div>

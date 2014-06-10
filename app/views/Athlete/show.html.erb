@@ -3,20 +3,71 @@
 <% athlete_id = params["the_athlete_id"] %>
 <% athlete = Athlete.read(the_athlete_id) %>
 <% product = Product.find_by("athlete_id" => athlete["id"]) %>
-<% brand = Brand.find_by("id" => product["brand_id"]) %>
+<% if product.blank? %> <i>  </i> <% else %> <% brand = Brand.find_by("id" => product["brand_id"]) %>
+	<% end %>
+
 
 <%= image_tag(athlete["image_url"], height: '25%', width: '25%') %>
 <h2> <%= athlete["first_name"] %> <%= athlete["last_name"] %></h2>
+
+<!-- TWITTER API -->
+<a href="https://twitter.com/<%= athlete["twitter_name"] %>" class="twitter-follow-button" data-show-count="true" data-show-screen-name= "true" data-lang="en">Follow <%= athlete["twitter_name"] %> </a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
 <% team = Team.find_by("id"=> athlete["team_id"]) %>
 
+<div> Team: <%= team["name"] %> </div>
 
-Team: <%= team["name"] %>
+<% if brand.blank? %> <div><i> No sponsors yet added to database </i></div><% else %> <div> Sponsored by:  </div> <%=  image_tag(brand["logo_url"], height: '25%', width: '25%') %> 
+	<% end %>
 
-<div> Sponsored by:  </div> 
-<div> <%= image_tag(brand["logo_url"], height: '25%', width: '25%') %> </div>
+<div><% if product.blank? %> <i>No products yet added to the database </i></div><% else %>
+<li> <%= link_to product["name"], product["url"] %>  <%= link_to "(Delete)", "/product/#{product["id"]}", "method" => "delete" %> </li> 
 
-<li> <%= link_to product["name"], product["url"] %></li> 
+	<% end %>
+
+	<div class="page-header">
+  <h1>Add a New Product</h1>
+</div>
 
 
+<div class="row">
+  <div class="col-md-5">
 
+    <%= form_tag "/product", "method" => "post"  %>
+
+      </div>
+
+       <div class="form-group">
+        <%= select_tag "athlete_id",
+                       options_from_collection_for_select(Athlete.read.order("first_name", "last_name"),
+                        "id",
+                        "last_name"), "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "name", "Product Name:" %>
+        <%= text_field_tag "name", "", "class" => "form-control" %>
+      </div>
+
+ 	   <div class="form-group">
+        <%= label_tag "picture", "Link to photo:" %>
+        <%= text_field_tag "picture", "", "class" => "form-control" %>
+      </div>
+
+ 	   <div class="form-group">
+        <%= label_tag "url", "Link to purchase:" %>
+        <%= text_field_tag "logo_url", "", "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "brand_id", "Brand:" %>
+             <%= select_tag "brand_id",
+                       options_from_collection_for_select(Brand.read.order("name"),
+                        "id",
+                        "name"), "class" => "form-control" %>
+      </div>
+
+ <%= submit_tag "Add This Product", "class" => "btn btn-lg btn-success" %> or <%= link_to "Cancel", "/product/#{athlete["id"]}" %>
 

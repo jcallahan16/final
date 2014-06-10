@@ -1,9 +1,6 @@
 FinalProject::Application.routes.draw do
   get "/" => 'homepage#index'
 
-  get "/athlete/:id" =>'athlete#show'
-  get "/brand/:id" =>'brand#show'
-
 
   # --- Create
   get "/sport/new" => 'sport#new'
@@ -59,10 +56,8 @@ FinalProject::Application.routes.draw do
 
 
 
-  # Resource: Directors
-
-
-
+  post "/product" => 'product#create'
+  delete "/product/:id" => 'product#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

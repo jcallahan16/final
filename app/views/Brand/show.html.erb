@@ -1,21 +1,9 @@
 <% the_brand_id = params["id"] %>
+<% all_athletes = Athlete.read %>
+<% brand = Brand.read(the_brand_id) %>
+<%# brand_id = params["the_brand_id"] %>
+<% product = Product.find_by("brand_id" => "the_brand_id") %>
+<% athlete = Athlete.find_by("id" => product("athlete_id") %>
+<%= athlete["first_name"] %>
 
-<% brand_id = params["the_brand_id"] %>
-<% athlete = Athlete.read(the_brand_id) %>
-<% product = Product.find_by("athlete_id" => athlete["id"]) %>
-<% brand = Brand.find_by("id" => product["brand_id"]) %>
-
-<%= image_tag(athlete["image_url"], height: '25%', width: '25%') %>
-<h2> <%= athlete["first_name"] %> <%= athlete["last_name"] %></h2>
-<% team = Team.find_by("id"=> athlete["team_id"]) %>
-
-
-Team: <%= team["name"] %>
-
-<div> Sponsored by:  </div> 
-<div> <%= image_tag(brand["logo_url"], height: '25%', width: '25%') %> </div>
-
-<li> <%= link_to product["name"], product["url"] %></li> 
-
-
-
+	<% end %>

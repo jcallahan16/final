@@ -1,17 +1,33 @@
 <% sport_id = params["id"] %>
 <% sport = Sport.read(sport_id) %>
 <% team = Team.find_by("sport_id"=> sport["id"]) %>
+
+<% if team.blank? %> <% else %> 
+
+
 <% athlete = Athlete.find_by("team_id" => team["id"]) %>
 
-<%= image_tag(team["logo"], height: '25%', width: '25%') %>
 
+
+<%= image_tag(team["logo"], height: '25%', width: '25%') %>
+<% end %>
 
 
 <%# teams.each do |team| %>
+<% if team.blank? %> <div><i> No athletes yet added for this sport </i></div> <% else %> 
 <h1> <%= team["name"] %> </h1>
 <%# athletes.each do |athlete| %>
-<% athlete_fname = athlete["first_name"] %>
+<% end %>
+<% if athlete.blank? %> <div><i>  </i></div> 
+
+<% else %> 
+
+<% athlete_fname = athlete["first_name"] %>  
 <% athlete_lname = athlete["last_name"] %>
 <% athlete_name = athlete_fname + athlete_lname %>
 
-<li> <%= link_to (athlete_name), "/athlete/#{athlete["id"]}" %> </li>
+<li> 
+<%= link_to (athlete_fname), "/athlete/#{athlete["id"]}" %>  <%= link_to (athlete_lname), "/athlete/#{athlete["id"]}" %> </li>
+<% end %>
+
+
